@@ -1,0 +1,6 @@
+POST http://127.0.0.1:8081/ajaxmessage
+
+content-type: application/json
+{
+    "username": "moi", "country":"lol","message":"joo"
+}

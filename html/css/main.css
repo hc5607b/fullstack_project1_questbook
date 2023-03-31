@@ -1,0 +1,72 @@
+body{
+    text-align: center;
+    align-items: center;
+}
+
+.headtitle{
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+.container1{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.item{
+    display: grid;
+}
+.element{
+    margin-left: 10%;
+    width: 80%;
+    text-align: left;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.border{
+    
+    border-style: solid;
+    border-width: 1px;
+}
+
+.el{
+    display: grid;
+    grid-template-columns: 80px 500px;
+}
+
+.title{
+    width: 100px;
+}
+
+.sbutton{
+    width: 70px;
+    float: right;
+}
+
+.centerTable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.floatTop{
+    vertical-align: top;
+}
+
+td{
+    padding: 5px;
+}
+
+h2{
+    font-size: 20px;
+    padding: 20px;
+    margin: 0px;
+}
+
+.questbook{
+    margin-top: 20px;
+    border-top: solid;
+    border-width: 1px;
+    border-color: rgb(199, 199, 199);
+}

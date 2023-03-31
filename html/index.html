@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="headtitle">
+            MY QUESTBOOK
+        </div>
+        <div>
+            <h2>Leave message</h2> 
+            <div class="container1">
+                <div class="item">
+                    New message
+                    <form method="post" action="/newmessage">
+                        <table class="centerTable">
+                            <tr>
+                                <td class="padTd">Username</td>
+                                <td><input type="text" name="username" required></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td><input type="text" name="country" required></td>
+                            </tr>
+                            <tr>
+                                <td class="floatTop">Message</td>
+                                <td><textarea name="message" cols="22" rows="4" required></textarea></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="sbutton" type="submit" value="Submit">
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        
+                    </form>
+                </div>
+                <div class="item">
+                    New ajax message
+                    <form name="dataform">
+                        <table class="centerTable">
+                            <tr>
+                                <td class="padTd">Username</td>
+                                <td><input type="text" name="username"></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td><input type="text" name="country"></td>
+                            </tr>
+                            <tr>
+                                <td class="floatTop">Message</td>
+                                <td><textarea name="message" cols="22" rows="4"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="submit sbutton" type="button" value="Submit">
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="questbook">
+            <h2>All messages</h2> 
+            <div class="table">
+                <div class="element border">
+                    <div class="el">
+                        <div class="title">Username: </div>
+                        <div class="content id1">Terve</div>
+                    </div>
+                    <div class="el">
+                        <div class="title">Country: </div>
+                        <div class="content id2">Terve</div>
+                    </div>
+                    <div class="el">
+                        <div class="title">Message: </div>
+                        <div class="content id3">Terve</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
