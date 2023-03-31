@@ -4,34 +4,34 @@ var fs = require('fs');
 const path = require('path');
 const port = process.env.PORT || 8081
 
-var questbook = {
+var guestbook = {
     dat: []
 };
 
 var app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'html')))
-loadQuestbook();
+loadGuestbook();
 
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/html/index.html');
 })
 
-app.get('/questbook', function(req, res){
-    res.send(questbook);
+app.get('/guestbook', function(req, res){
+    res.send(guestbook);
 })
 
 app.post('/newmessage', function(req, res){
     let data = req.body;
-    updateQuestbook(data);
+    updateGuestbook(data);
     res.sendFile(__dirname + '/html/redirect.html');
 })
 
 app.post('/ajaxmessage', function(req, res){
     let data = req.body;
-    updateQuestbook(data);
-    res.send(questbook);
+    updateGuestbook(data);
+    res.send(guestbook);
 })
 
 var server = app.listen(port, function() {
@@ -42,28 +42,28 @@ var server = app.listen(port, function() {
 
 })
   
-function updateQuestbook(msg){
-    questbook.dat.push(msg);
-    saveQuestbook();
+function updateGuestbook(msg){
+    guestbook.dat.push(msg);
+    saveGuestbook();
 }
 
-function printQuestbook(){
-    console.log("Heres a questbook: ")
-    for(let i = 0; i < questbook.dat.length; i++){
-        console.log(questbook.dat[i])
+function printGuestbook(){
+    console.log("Heres a guestbook: ")
+    for(let i = 0; i < guestbook.dat.length; i++){
+        console.log(guestbook.dat[i])
     }
 }
 
-function loadQuestbook(){
-    fs.readFile("data/questbook.json", 'utf8', (err,data)=>{
+function loadGuestbook(){
+    fs.readFile("data/guestbook.json", 'utf8', (err,data)=>{
         if(err || data.length < 5){console.error("Read failed. No file found"); return;}
         console.log("Read succeed")
-        questbook = JSON.parse(data)
-        console.log("Questbook loaded with " + questbook.dat.length + " messages");
-        printQuestbook();
+        guestbook = JSON.parse(data)
+        console.log("Guestbook loaded with " + guestbook.dat.length + " messages");
+        printGuestbook();
     })
 }
 
-function saveQuestbook(){
-    fs.writeFile("data/questbook.json", JSON.stringify(questbook), err => {if(err){console.error("File write failed")}console.log("File write succeed")})
+function saveGuestbook(){
+    fs.writeFile("data/guestbook.json", JSON.stringify(guestbook), err => {if(err){console.error("File write failed")}console.log("File write succeed")})
 }

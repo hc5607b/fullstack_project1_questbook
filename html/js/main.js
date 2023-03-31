@@ -5,7 +5,7 @@ $(document).ready(function() {
     template = $(".element")
     paret = $(".table")
     template.remove();
-    loadQuestbook();
+    loadGuestbook();
 });
 
 $(document).on('click','.submit',function(){
@@ -17,30 +17,30 @@ $(document).on('click','.submit',function(){
         message: document.forms["dataform"]["message"].value
     },function(data, status){
         if(status != "success"){console.error("Data update failed"); return;}
-        clearQuestbook();
-        printQuestbook(data);
+        clearGuestbook();
+        printGuestbook(data);
         document.forms["dataform"]["username"].value = "";
         document.forms["dataform"]["country"].value = "";
         document.forms["dataform"]["message"].value = "";
     })
 });
 
-function loadQuestbook(){
-    $.get("/questbook", function(data, status){
-        if(status != "success"){console.error("Questbook load failed"); return;}
-        printQuestbook(data);
+function loadGuestbook(){
+    $.get("/guestbook", function(data, status){
+        if(status != "success"){console.error("Guestbook load failed"); return;}
+        printGuestbook(data);
     })
 }
 
-function clearQuestbook(){
+function clearGuestbook(){
     paret.html("");
 }
 
 function testprint(){
-    printQuestbook(JSON.parse('{"dat":[{"username":"matti","country":"jooo","message":"moi"},{"username":"pertti","country":"jooo","message":"moi"},{"username":"teemu","country":"jooo","message":"moi"},{"username":"paavo","country":"perse","message":"lol"},{"username":"pertti","country":"joo","message":"moikka"},{"username":"sda","country":"wda","message":"sdaw"},{"username":"dwasd","country":"awdasd","message":"wadsdadw"},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"}]}'))
+    printGuestbook(JSON.parse('{"dat":[{"username":"matti","country":"jooo","message":"moi"},{"username":"pertti","country":"jooo","message":"moi"},{"username":"teemu","country":"jooo","message":"moi"},{"username":"paavo","country":"perse","message":"lol"},{"username":"pertti","country":"joo","message":"moikka"},{"username":"sda","country":"wda","message":"sdaw"},{"username":"dwasd","country":"awdasd","message":"wadsdadw"},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"","country":"","message":""},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"},{"username":"sadw","country":"awd","message":"sda"}]}'))
 }
 
-function printQuestbook(data){
+function printGuestbook(data){
     for(let i = Object.keys(data.dat).length -1; i>=0; i--){
         let ins = template.clone()
         ins.find(".id1").html(data.dat[i].username);
