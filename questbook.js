@@ -34,6 +34,12 @@ app.post('/ajaxmessage', function(req, res){
     res.send(guestbook);
 })
 
+app.get('/clearguestbook', function(req, res){
+    guestbook.dat = [];
+    saveGuestbook();
+    res.send(guestbook);
+})
+
 var server = app.listen(port, function() {
     var _host = server.address().address
     var _port = server.address().port
